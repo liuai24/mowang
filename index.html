@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>魔王潮盒·概率查询 · 赏品概率 / 期望价值 / 回本率</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>魔王潮盒·概率查询</h1>
+      <span class="sub">赏品概率 · 期望价值 · 回本率</span>
+    </div>
+    <div class="controls">
+      <input id="search" type="search" placeholder="搜索池子名字或 ID…" autocomplete="off">
+      <select id="sort" title="排序方式">
+        <option value="price">单抽价格 从低到高</option>
+        <option value="payback">回本率 从高到低</option>
+        <option value="profit">期望收益 从高到低</option>
+        <option value="ev">期望价值 从高到低</option>
+      </select>
+    </div>
+  </header>
+
+  <div class="notice">
+    <div class="notice-item">⚠️ 1. 所有池子的「普通赏」价格统一按 <b>0.5 元</b> 计算（该价格不一定准确，仅供参考）</div>
+    <div class="notice-item">2. 盒中盒与翻倍池，回本率、期望价值与期望收益仅供参考（计算时无法计算翻倍与开盒情况）</div>
+  </div>
+
+  <section class="stats" id="stats"></section>
+
+  <main id="grid" class="grid"></main>
+
+  <div id="empty" class="empty hidden">没有匹配的池子</div>
+
+  <footer class="footer">
+    数据来源：小程序「池子」接口实时抓取 · 期望价值中「普通款」赏品统一按 0.5 元计价，结果仅供参考
+  </footer>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-backdrop" id="backdrop"></div>
+    <div class="modal-panel" id="panel"></div>
+  </div>
+
+  <script src="data.js" charset="utf-8"></script>
+  <script src="app.js"></script>
+</body>
+</html>
